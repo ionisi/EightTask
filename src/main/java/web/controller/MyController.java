@@ -5,25 +5,25 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import web.dao.CarsDAO;
+import web.service.UserService;
 
 @Controller
 @RequestMapping("/cars")
 public class MyController {
 
-    private final CarsDAO carsDAO;
+    private final UserService userService;
 
     @Autowired
-    public MyController(CarsDAO carsDAO) {
-        this.carsDAO = carsDAO;
+    public MyController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping
     public String getCars(@RequestParam(value = "count", required = false) Integer count, Model model) {
         if (count == null || count < 1 || count > 5) {
-            count = carsDAO.getAllCars().size();
+            count = userService.getAllCars().size();
         }
-        model.addAttribute("cars", carsDAO.getCars(count));
+        model.addAttribute("cars", userService.getCars(count));
         return "cars";
     }
 
