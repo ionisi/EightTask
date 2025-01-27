@@ -9,7 +9,7 @@ import java.util.List;
 
 @Component
 public class CarsDAOImp implements CarsDAO {
-    private List<Car> cars;
+    private final List<Car> cars;
 
     {
         cars = new ArrayList<Car>();
