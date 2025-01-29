@@ -20,11 +20,12 @@ public class CarsDAOImp implements CarsDAO {
         cars.add(new Car("Honda", 2024, Color.yellow));
     }
 
-    public List<Car> getAllCars() {
-        return cars;
-    }
 
-   public List<Car> getCars(int count) {
+
+   public List<Car> getCarsById(int count) {
+       if (count < 0 || count > 5) {
+           return cars;
+       }
         return  cars.subList(0, Math.min(count, cars.size()));
    }
 }

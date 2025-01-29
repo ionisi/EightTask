@@ -19,11 +19,8 @@ public class MyController {
     }
 
     @GetMapping
-    public String getCars(@RequestParam(value = "count", required = false) Integer count, Model model) {
-        if (count == null|| count > 5) {
-            count = userService.getAllCars().size();
-        }
-        model.addAttribute("cars", userService.getCars(count));
+    public String getCarsByCount(@RequestParam(value = "count", required = false, defaultValue = "5") Integer count, Model model) {
+        model.addAttribute("cars", userService.getCarsById(count));
         return "cars";
     }
 

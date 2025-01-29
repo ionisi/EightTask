@@ -21,13 +21,7 @@ public class UserServiceImp implements UserService {
 
     @Transactional
     @Override
-    public List<Car> getAllCars() {
-        return carsDAO.getAllCars();
-    }
-
-    @Transactional
-    @Override
-    public List<Car> getCars(int count) {
-        return carsDAO.getCars(count);
+    public List<Car> getCarsById(int count) {
+        return carsDAO.getCarsById(count);
     }
 }
