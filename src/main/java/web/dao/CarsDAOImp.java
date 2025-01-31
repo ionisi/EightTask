@@ -23,7 +23,7 @@ public class CarsDAOImp implements CarsDAO {
 
 
    public List<Car> getCarsById(int count) {
-       if (count < 0 || count > 5) {
+       if (count < 0) {
            return cars;
        }
         return  cars.subList(0, Math.min(count, cars.size()));
